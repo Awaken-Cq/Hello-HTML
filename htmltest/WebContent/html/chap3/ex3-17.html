@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>form control test - 회원가입</h2>
+	<table name="member" border="2" width="500">
+		<tr>
+			<td align="center">이름</td>
+			<td colspan="2"><input name="name">
+		</tr>
+		<tr>
+			<td align="center">아이디</td>
+			<td colspan="2"><input name="id"><input type="submit"
+				value="중복확인"></td>
+		</tr>
+		<tr>
+			<td align="center">비밀번호</td>
+			<td colspan="2"><input name="pass" type="password"></td>
+		</tr>
+		<tr>
+			<td align="center">비밀번호확인</td>
+			<td colspan="2"><input name="passck" type="password"></td>
+		</tr>
+		<tr>
+			<td align="center">성별</td>
+			<td colspan="2"><input type="radio" name="gender" value="m">남
+				<input type="radio" name="gender" value="f">여</td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center">좋아하는 과일
+		</tr>
+		</tr>
+		<td colspan="3" align="center">
+		<input type="checkbox"	name="fruit" value="apple">사과 
+		<input type="checkbox"	name="fruit" value="watermelon">수박 
+			<input type="checkbox"	name="fruit" value="strawberry">딸기 
+			<input type="checkbox"	name="fruit" value="grape">포도
+		</td>
+		</tr>
+		<tr>
+			<td align="center">이메일</td>
+			<td colspan="2"><input type="email" name="emailid" size="12"
+				maxlength="12"> <label for="domain">@</label> 
+				<select name="emaildomain" maxlength="15">
+					<option value="naver.com" selected="selected" label="네이버">
+					<option value="hanmail.net" label="다음">
+					<option value="gmail.com" label="구글">
+				<input type="email" name="emaildomain" size="10" maxlength="15"></td>
+		</tr>
+		<tr>
+			<td align="center">연락처</td>
+			<td><select name=tel id="Lnum">
+					<option value="02" label="02" selected="selected">
+					<option value="031" label="031">
+					<option value="010" label="010">
+					<option value="011" label="011">
+			</select> -<input type="tel" maxlength="4" size="4">-<input type="tel"
+				maxlength="4" size="4"></td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center"><input type="submit" value="회원가입">
+			</button> <input type="reset" value="초기화"></td>
+	</table>
+</body>
+</html>
