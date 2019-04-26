@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//객체 리터럴
+var empty_object = {};
+var member = {
+		"user-name" : "123",
+		"age" : 20,
+		"city" : "서울"
+}
+var middle = member['user-name'] || 'none';
+console.log(middle);
+
+var x = member;
+console.log(x.city);
+x.city = "부산";
+console.log(member.city);
+
+
+
+// 객체의 속성에 접근
+console.log(member.age); // 1.dot표기법
+console.log(member["age"]); // 2.[]표기법
+// 속성명에 연산자가 포함된 경우 [] 표기법만 접근 가능.
+console.log(member["user-name"]);
+console.log(member.user-name);
+
+// 속성의 값 변경
+member.age = 30;
+member["city"] = "경기도";
+
+console.log(member["age"]);
+console.log(member.city);
+
+// 속성추가
+member.tel ="010-2702-6429";
+console.log(member.tel);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

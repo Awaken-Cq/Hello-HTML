@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE booklist SYSTEM "book.dtd">
+
+
+
+
+<booklist>
+	<book kind="소설" isbn="홍8937462001">
+
+		<title>홍길동전</title>
+		<author>
+			<name>허균</name>
+				
+			<tel>011-1234-4567</tel>
+			<address>대한민국</address>
+		</author>
+		<publisher>민음사</publisher>
+		<price>9000</price>
+		</book>
+	<book isbn="책8956055467">
+		<title>책은도끼다</title>
+		<author>
+			<writer sex="여">박웅현</writer>
+			<tel>010-4315-5421</tel>
+			<address>대한민국</address>
+		</author>
+		<publisher>북하우스</publisher>
+		<price>16000</price>		
+	</book>	
+</booklist>

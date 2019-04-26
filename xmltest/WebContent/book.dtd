@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT booklist (book)+>
+	<!ELEMENT book (title, author, publisher, price, descrption?)>
+	<!ATTLIST book kind (IT|소설|잡지) "IT"
+					isbn ID #REQUIRED>
+	<!ELEMENT title (#PCDATA)>
+	<!ELEMENT author ((name|writer), tel, address)>
+		<!ELEMENT name (#PCDATA)>
+			<!ATTLIST name sex (남|여) "남">
+		<!ELEMENT writer (#PCDATA)>
+			<!ATTLIST writer sex (남|여) "남">
+		<!ELEMENT tel (#PCDATA)>
+		<!ELEMENT address (#PCDATA)>
+	
+	<!ELEMENT publisher (#PCDATA)>
+	<!ELEMENT price (#PCDATA)>
+	<!ELEMENT descrption (#PCDATA)>
+	
