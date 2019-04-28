@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	color: blue;
+}
+
+input {
+	color: green;
+}
+</style>
+</head>
+<body>
+	<h2 >form control test - 회원가입</h2>
+	<table name="member" border="2" width="500">
+		<tr>
+			<td >이름</td>
+			<td colspan="2"><input name="name">
+		</tr>
+		<tr>
+			<td >아이디</td>
+			<td colspan="2"><input name="id" ><input type="submit"
+				value="중복확인"></td>
+		</tr>
+		<tr>
+			<td >비밀 번호</td>
+			<td colspan="2"><input name="pass" type="password"></td>
+		</tr>
+		<tr>
+			<td >비밀번호확인</td>
+			<td colspan="2"><input name="passck" type="password"></td>
+		</tr>
+		<tr>
+			<td >성별</td>
+			<td colspan="2"><input type="radio" name="gender" value="m">남
+				<input type="radio" name="gender" value="f">여</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+			<div style="white-space:pre">pre는 사용자가 입력한 엔터와 같은 줄바꿈
+			 기호가 입력된 경우 줄바꿈이 발생한다.</div></td>
+		</tr>
+		</tr>
+		<td colspan="3">
+		<div style="white-space:nowrap">nowrap은 &lt;br&gt;태그를 만났을 때<br>
+		줄바꿈이 발생한다.</div></td>
+		</tr>
+		<tr>
+			<td colspan="3">
+			<div style="white-space:pre-wrap">pre-wrap은 사용자가 입력한 엔터와 같은 줄바꿈 기호가 있는 경우
+		입력한 그대로 줄바꿈이 발생하고, 줄 바꿈이 필요한 경우에도 자동으로 줄 바꿈이 발생한다.</div></td>
+		</tr>
+		</tr>
+		<td colspan="3">
+		<div style="white-space:pre-line">pre-line은 사용자가 입력한 엔터와 같은 줄바꿈 기호가 있는 경우
+		줄바꿈이 발생하고, 줄 바꿈이 필요한 경우에도 자동으로 줄 바꿈이 발생한다.
+		</div></td>
+		</tr>
+		<tr>
+			<td >이메일</td>
+			<td colspan="2"><div>njtak2514@gmail.com</div></td>
+		</tr>
+		<tr>
+			<td >연락처</td>
+			<td>010-2702-6429</td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center"><input type="submit" value="회원가입">
+				</button> <input type="reset" value="초기화"></td>
+	</table>
+</body>
+</html>
