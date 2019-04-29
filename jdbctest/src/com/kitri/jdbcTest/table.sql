@@ -15,3 +15,6 @@ start with 1 increment by 1;
 
 select * from jdbctest;
 
+select name, id, to_char(joindate,'yyyy.mm.dd hh24:hh:mi')
+from jdbctest;
+
