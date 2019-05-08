@@ -55,7 +55,7 @@ public class Counter extends HttpServlet {
 				out.print("		<img src=\"/basicservlet/img/"+ cntTotal.charAt(i) + ".png\" width=\"50\">");				
 				System.out.println(i);
 			}
-			out.println("		번째 방문자입니다.");
+			
 			out.println("	</body>");
 			out.println("</html>");
 			

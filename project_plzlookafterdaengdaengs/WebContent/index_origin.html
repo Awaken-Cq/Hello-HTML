@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Resume - Start Bootstrap Theme</title>
+
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom fonts for this template -->
+<link
+	href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i"
+	rel="stylesheet">
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="css/resume.min.css" rel="stylesheet">
+
+<!-- font -->
+<link href="font/font.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+body {
+	font-family: BMJUA;
+	box-sizing: border-box;
+}
+section.resume-section {
+	padding-top: 1rem !important;
+	padding-bottom: 2rem !important;
+	max-width: 80rem;
+}
+
+#about{
+	background-image: url("img/logo.png");
+	background-size: contain;
+	width:100%;
+	height:100%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	max-width: 85rem;
+}
+#experience a{
+	color: black;
+}
+
+.resume-content-img img{
+	width: 100px;
+	height: 100px;
+	margin-right: 20px;
+}
+
+#experience .resume-item:hover{
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+}
+
+#experience .separator{
+	width: 100%;
+	height: 1px;
+	border-bottom: 1px solid;
+	margin-bottom: 20px;
+}
+
+#education .resume-content{
+	width: 226px;
+	height: 226px;
+	text-align: center;
+	color: black;
+	font-size: 20px;
+	background-image: url("img/멍뭉스.jpg");
+	background-size:226px 226px;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+	opacity: 1.0;
+}
+
+#education .resume-content:hover{
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
+	opacity: 0.5;
+}
+
+#education .resume-content:after{
+}
+
+#education .resume-item{
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+#education .text-md-right{
+	min-width: auto;
+}
+
+#skills .board{
+	display: inline-block;
+}
+
+#skills .list-inline-item{
+	min-width: 36rem;
+	height: 10rem;
+	text-decoration:none;
+	float: left;
+	border: 1px solid #868e96;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+	font-family: BMJUA;
+	color: #868e96;
+	font-size: 20px;
+	display: flex;
+	flex-direction: row;
+	padding: 1rem;
+}
+
+#skills .list-inline-item:hover{
+	border:3px solid #868e96;
+}
+
+#skills .subject{
+	width:21rem;
+	font-size: 25px;
+	font-weight: bold;
+	margin-right: 1rem;
+}
+#skills .contents{
+	font-size: 20px;
+	font-weight: normal;
+}
+#skills .right{
+	font-size: 15px;
+	min-width: 10rem;
+	text-align: right;
+}
+
+#skills .content-img{
+	background-image: url("img/logo.png");
+	background-size: 100% 6rem;
+	width: 100%;
+	height: 6rem;
+}
+
+
+</style>
+
+</head>
+
+<body id="page-top">
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
+		id="sideNav">
+		<a class="navbar-brand js-scroll-trigger" href="#page-top"> <span
+			class="d-block d-lg-none">Clarence Taylor</span> <span
+			class="d-none d-lg-block"> <img
+				class="img-fluid img-profile rounded-circle mx-auto mb-2"
+				src="img/profile.jpg" alt="">
+		</span>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"
+					href="#about">다이어리</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"
+					href="#experience">소모임</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"
+					href="#education">유기견</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"
+					href="#skills">게시판</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"
+					href="#interests">강아지 정보</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"
+					href="#awards">통계</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container-fluid p-0">
+
+		<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+			<div class="w-100">
+				<h1 class="mb-0">
+					댕댕이를 <span class="text-primary">부탁해~</span>
+				</h1>
+				<div class="subheading mb-5">
+					kitri 2nd Project <a href="mailto:name@email.com">4조</a>
+				</div>
+				<p class="lead mb-5"></p>
+				<div class="login-icons">
+					<label>로그인</label>
+					<label>회원가입</label>
+				</div>
+			</div>
+		</section>
+
+		<hr class="m-0">
+
+		<section
+			class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+			<div class="w-100">
+				<h2 class="mb-5">소모임</h2>
+
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5" onclick="alert('눌렸어?')">
+					
+					<div class="resume-content">
+						<h3 class="mb-0"><a href ="">광명시 길고양이 모임(소모임 제목)</a></h3>
+						<div class="subheading mb-3">우리집 앞에 길고양이 2마리(부제목)</div>
+						<p>강아지냐 고양이냐.. 강아지 사이트에서 고양이를 외치는 소모임</p>
+						<div class='resume-content-img'>
+							이미지는 5개가 국룰
+							<img src='img/멍뭉스.jpg'>
+							<img src='img/멍뭉스.jpg'>
+							<img src='img/멍뭉스.jpg'>
+							<img src='img/멍뭉스.jpg'>
+						</div>
+					</div>
+					<div class="resume-date text-md-right">
+						<span class="text-primary">방장 : 고양이<br> 개설일 : 2019.03.02~
+						</span>
+					</div>
+				</div>
+				
+				<div class="separator"></div>
+				
+
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-content">
+						<h3 class="mb-0">소형견 키우는 사람 모여라~</h3>
+						<div class="subheading mb-3">소형견에 대한 정보및 사진 공유</div>
+						<p>저희 소모임은 소형견을 키우는 견주들의 모임입니다. 블라블라~ 솰라솰라~
+						애들이 말을 드럽게 안들어서 걱정입니다. 블라블라
+						</p>
+						<div class='resume-content-img'>
+
+						</div>
+					</div>
+					<div class="resume-date text-md-right">
+						<span class="text-primary">방장 : 소형이<br> 개설일 : 2019.03.02~</span>
+					</div>
+				</div>
+				
+				<div class="separator"></div>
+				
+				<div
+					class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-content">
+						<h3 class="mb-0">우리 프로젝트는 과연 잘 끝날 수 있을까?</h3>
+						<div class="subheading mb-3">css 졸라 어려움..</div>
+						<p>망함... 개망함...희망이 없다</p>
+						<div class='resume-content-img'>
+							<img src='img/멍뭉스.jpg'>
+							<img src='img/멍뭉스.jpg'>
+							<img src='img/멍뭉스.jpg'>
+							<img src='img/멍뭉스.jpg'>
+						</div>
+					</div>
+					<div class="resume-date text-md-right">
+						<span class="text-primary">방장 : 노정탁<br> 개설일 : 2019.03.02~</span>
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+
+		<hr class="m-0">
+
+		<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
+			<div class="w-100">
+				<h2 class="mb-5">유기견</h2>
+				
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-content" style="background-image: url('img/유기견1.png'); background-size: cover;">
+						<h3 class="mb-0">멍뭉이</h3>
+						<div class="subheading mb-3">경기도 광명시 동물보호소</div>
+						<div>품종 : 흰둥이</div>
+						<p>몸무게: 3.23kg</p>
+						<div class="resume-date text-md-right">
+							<span class="text-primary">2019.04.05~</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+					<div class="resume-content" style="background-image: url('img/유기견2.png'); background-size: cover;">
+						<h3 class="mb-0">뭉멍이</h3>
+						<div class="subheading mb-3">서울특별시 구디</div>
+						<p>GPA: 3.56</p>
+						<div class="resume-date text-md-right">
+						<span class="text-primary">August 2002 - May 2006</span>
+					</div>
+					</div>
+				</div>
+				
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-content" style="background-image: url('img/유기견3.png'); background-size: cover;">
+						<h3 class="mb-0">멍뭉이</h3>
+						<div class="subheading mb-3">경기도 광명시 동물보호소</div>
+						<div>품종 : 흰둥이</div>
+						<p>몸무게: 3.23kg</p>
+						<div class="resume-date text-md-right">
+							<span class="text-primary">2019.04.05~</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-content" style="background-image: url('img/유기견4.png'); background-size: cover;">
+						<h3 class="mb-0">멍뭉이</h3>
+						<div class="subheading mb-3">경기도 광명시 동물보호소</div>
+						<div>품종 : 흰둥이</div>
+						<p>몸무게: 3.23kg</p>
+						<div class="resume-date text-md-right">
+							<span class="text-primary">2019.04.05~</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-content">
+						<h3 class="mb-0">멍뭉이</h3>
+						<div class="subheading mb-3">경기도 광명시 동물보호소</div>
+						<div>품종 : 흰둥이</div>
+						<p>몸무게: 3.23kg</p>
+						<div class="resume-date text-md-right">
+							<span class="text-primary">2019.04.05~</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-content">
+						<h3 class="mb-0">멍뭉이</h3>
+						<div class="subheading mb-3">경기도 광명시<br>동물보호소</div>
+						<div>품종 : 흰둥이</div>
+						<p>몸무게: 3.23kg</p>
+						<div class="resume-date text-md-right">
+							<span class="text-primary">2019.04.05~</span>
+						</div>
+					</div>
+				</div>
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-content">
+						<h3 class="mb-0">멍뭉이</h3>
+						<div class="subheading mb-3">경기도 광명시<br>동물보호소</div>
+						<div>품종 : 흰둥이</div>
+						<p>몸무게: 3.23kg</p>
+						<div class="resume-date text-md-right">
+							<span class="text-primary">2019.04.05~</span>
+						</div>
+					</div>
+				</div>
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-content">
+						<h3 class="mb-0">멍뭉이</h3>
+						<div class="subheading mb-3">경기도 광명시<br>동물보호소</div>
+						<div>품종 : 흰둥이</div>
+						<p>몸무게: 3.23kg</p>
+						<div class="resume-date text-md-right">
+							<span class="text-primary">2019.04.05~</span>
+						</div>
+					</div>
+				</div>
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-content">
+						<h3 class="mb-0">멍뭉이</h3>
+						<div class="subheading mb-3">경기도 광명시<br>동물보호소</div>
+						<div>품종 : 흰둥이</div>
+						<p>몸무게: 3.23kg</p>
+						<div class="resume-date text-md-right">
+							<span class="text-primary">2019.04.05~</span>
+						</div>
+					</div>
+				</div>
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-content">
+						<h3 class="mb-0">멍뭉이</h3>
+						<div class="subheading mb-3">경기도 광명시<br>동물보호소</div>
+						<div>품종 : 흰둥이</div>
+						<p>몸무게: 3.23kg</p>
+						<div class="resume-date text-md-right">
+							<span class="text-primary">2019.04.05~</span>
+						</div>
+					</div>
+				</div>
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-content">
+						<h3 class="mb-0">멍뭉이</h3>
+						<div class="subheading mb-3">경기도 광명시<br>동물보호소</div>
+						<div>품종 : 흰둥이</div>
+						<p>몸무게: 3.23kg</p>
+						<div class="resume-date text-md-right">
+							<span class="text-primary">2019.04.05~</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<hr class="m-0">
+
+		<section class="resume-section p-3 p-lg-5 d-flex align-items-center"
+			id="skills">
+			<div class="w-100">
+				<h2 class="mb-5">게시판</h2>
+
+				<div class="subheading mb-3 board"><h3>나눔 게시판 최신글</h3>
+				<div class="list-inline">
+					<div class="list-inline-item">
+						<div class="subject">강아지 복장 나눔해요.
+							<div class="contents">내용인데... 이거 사이즈 조절이 가능한가? 이거 가능한 겁니까? 컨테츠가 늘어나면 또 어케 처리하냐 하</div>
+						</div>
+						<div class="right">글쓴이 : 나누미<div class="content-img"></div></div>
+						
+					</div>
+					<div class="list-inline-item">
+						<div class="subject">강아지 복장 나눔해요.
+							<div class="contents">내용인데... 이거 사이즈 조절이 가능한가?</div>
+						</div>
+						<div class="right">글쓴이 : 나누미</div>
+						
+					</div>
+					<div class="list-inline-item">
+						<div class="subject">강아지 복장 나눔해요.
+							<div class="contents">내용인데... 이거 사이즈 조절이 가능한가?</div>
+						</div>
+						<div class="right">글쓴이 : 나누미</div>
+						
+					</div>
+					<div class="list-inline-item">
+						<i class="fab fa-npm"></i></div>
+				</div>
+				</div>
+				
+				<div class="subheading mb-3 board"><h3>자랑 게시판 최신글</h3>
+					<div class="list-inline">
+						<div class="list-inline-item">
+						</div>
+						<div class="list-inline-item">
+						</div>
+						<div class="list-inline-item">
+						</div>
+						<div class="list-inline-item">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<hr class="m-0">
+
+		<section class="resume-section p-3 p-lg-5 d-flex align-items-center"
+			id="interests">
+			<div class="w-100">
+				<h2 class="mb-5">강아지 정보</h2>
+				<p>Apart from being a web developer, I enjoy most of my time
+					being outdoors. In the winter, I am an avid skier and novice ice
+					climber. During the warmer months here in Colorado, I enjoy
+					mountain biking, free climbing, and kayaking.</p>
+				<p class="mb-0">When forced indoors, I follow a number of sci-fi
+					and fantasy genre movies and television shows, I am an aspiring
+					chef, and I spend a large amount of my free time exploring the
+					latest technology advancements in the front-end web development
+					world.</p>
+			</div>
+		</section>
+
+		<hr class="m-0">
+
+		<section class="resume-section p-3 p-lg-5 d-flex align-items-center"
+			id="awards">
+			<div class="w-100">
+				<h2 class="mb-5">통계</h2>
+				<ul class="fa-ul mb-0">
+					<li><i class="fa-li fa fa-trophy text-warning"></i> Google
+						Analytics Certified Developer</li>
+					<li><i class="fa-li fa fa-trophy text-warning"></i> Mobile Web
+						Specialist - Google Certification</li>
+					<li><i class="fa-li fa fa-trophy text-warning"></i> 1<sup>st</sup>
+						Place - University of Colorado Boulder - Emerging Tech Competition
+						2009</li>
+					<li><i class="fa-li fa fa-trophy text-warning"></i> 1<sup>st</sup>
+						Place - University of Colorado Boulder - Adobe Creative Jam 2008
+						(UI Design Category)</li>
+					<li><i class="fa-li fa fa-trophy text-warning"></i> 2<sup>nd</sup>
+						Place - University of Colorado Boulder - Emerging Tech Competition
+						2008</li>
+					<li><i class="fa-li fa fa-trophy text-warning"></i> 1<sup>st</sup>
+						Place - James Buchanan High School - Hackathon 2006</li>
+					<li><i class="fa-li fa fa-trophy text-warning"></i> 3<sup>rd</sup>
+						Place - James Buchanan High School - Hackathon 2005</li>
+				</ul>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for this template -->
+	<script src="js/resume.min.js"></script>
+
+</body>
+
+</html>
