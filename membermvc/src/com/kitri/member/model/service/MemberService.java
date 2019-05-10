@@ -9,7 +9,7 @@ public interface MemberService {
 	String idCheck(String sid);
 	String zipSearch(String doro);
 	int registerMember(MemberDetailDto memberDetailDto);
-	int loginMember(String id, String password);
+	MemberDto loginMember(String id, String password);
 	
 	MemberDetailDto getMember(String id);
 	int modifyMember(MemberDetailDto dto);

@@ -1,6 +1,6 @@
 package com.kitri.member.model.service;
 
-import java.util.List;
+import java.util.*;
 
 import com.kitri.member.model.*;
 import com.kitri.member.model.dao.MemberDaoImpl;
@@ -43,7 +43,7 @@ public class MemberServiceImpl implements MemberService {
 		result += "<ziplist>\n";
 		for(ZipcodeDto zipDto : list) {
 		result += " <zip> \n";
-		result += "  <zipcode> "+ zipDto.getZipcode() +" </zipcode> \n";
+		result += "  <zipcode>"+ zipDto.getZipcode() +"</zipcode> \n";
 		result += "  <address><![CDATA["+ zipDto.getSido() + " " + zipDto.getGugun() + " "
 				+ zipDto.getUpmyon() + " " + zipDto.getDoro() + " " 
 				+ zipDto.getBuildingNumber() + " " + zipDto.getSigugunBuildingName() + "]]></address> \n";
@@ -56,13 +56,18 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int registerMember(MemberDetailDto memberDetailDto) {
 		int cnt = 0;
+		cnt = MemberDaoImpl.getMemberDao().registerMember(memberDetailDto);
 		return cnt;
 	}
 
 	@Override
-	public int loginMember(String id, String password) {
-		// TODO Auto-generated method stub
-		return 0;
+	public MemberDto loginMember(String id, String pass) {
+		Map<String, String> loginInfo = new HashMap<String, String>();
+		loginInfo.put("userid",  id);
+		loginInfo.put("userpwd", pass);
+		
+		
+		return MemberDaoImpl.getMemberDao().loginMember(loginInfo);
 	}
 
 	@Override

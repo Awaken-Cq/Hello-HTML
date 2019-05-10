@@ -10,7 +10,7 @@ public interface MemberDao {
 	int idCheck(String id);
 	List<ZipcodeDto> zipSearch(String address);
 	int registerMember(MemberDetailDto memberDetailDto);
-	int loginMember(Map<String, String> map);
+	MemberDto loginMember(Map<String, String> map);
 	
 	MemberDetailDto getMember(String id);
 	int modifyMember(MemberDetailDto dto);

@@ -154,7 +154,7 @@ public class MemberDaoImpl implements MemberDao {
 //			
 			System.out.println(cnt);
 		} catch (SQLException e) {
-			cnt = 1;
+			cnt = 0;
 			e.printStackTrace();
 		} finally { DBClose.close(conn, pstmt);
 		
@@ -163,9 +163,41 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public int loginMember(Map<String, String> map) {
-		// TODO Auto-generated method stub
-		return 0;
+	public MemberDto loginMember(Map<String, String> map) {
+		MemberDto memberDto = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String name = null;
+		try {
+			conn = DBConnection.makeConnection();
+
+			StringBuffer sql = new StringBuffer();
+			sql.append("select name , id, emailid, emaildomain, joindate \n");
+			sql.append("from member \n");
+			sql.append("where id = ? and pass = ?");
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, map.get("userid"));
+			pstmt.setString(2, map.get("userpwd"));
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				memberDto = new MemberDto();
+				memberDto.setName(rs.getString("name"));
+				memberDto.setId(rs.getString("id"));
+				memberDto.setEmailid(rs.getString("emailid"));
+				memberDto.setEmaildomain(rs.getString("emaildomain"));
+				memberDto.setJoindate(rs.getString("joindate"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+				DBClose.close(conn, pstmt, rs);
+		}
+		return memberDto;
 	}
 
 	@Override

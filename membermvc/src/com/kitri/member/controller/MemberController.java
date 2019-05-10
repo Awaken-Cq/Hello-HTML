@@ -5,82 +5,109 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
 import com.kitri.member.model.MemberDetailDto;
+import com.kitri.member.model.MemberDto;
 import com.kitri.member.model.service.MemberServiceImpl;
 import com.kitri.util.SiteConstance;
 
-@WebServlet("/user")
-public class MemberController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+//뒷단 컨트롤러
 
-	public void init() {
+public class MemberController {
 
+	private static MemberController memberController;
+
+	static {
+
+		memberController = new MemberController();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String act = request.getParameter("act");
-//		윗방식으로 처리하려면 먼저 act가 null인지 비교를 해야함 그렇지 않으면 nullpointEx이 뜰 가능성이있음.
-//		if(act != null) {
-//		if(act.equals("")) {
-//		}	}
-		if ("mvjoin".equals(act)) {
-			response.sendRedirect("/membermvc/user/member/member.jsp");
-		} else if ("mvlogin".equals(act)) {
-			response.sendRedirect("/membermvc/user/login/login.jsp");
+	public static MemberController getMemberController() {
+		return memberController;
+	}
 
-		} else if ("idcheck".equals(act)) {
-//			Ajax라서 다른 부분에 비해 형식이 조금 달라짐
-			String sid = request.getParameter("sid");
-			String resultXML = MemberServiceImpl.getMemberService().idCheck(sid);
-			response.setContentType("text/xml;charset=utf-8");
-			PrintWriter out = response.getWriter();
-			out.print(resultXML);
+	public String register(HttpServletRequest request, HttpServletResponse response) {
+		String path = "/index.jsp";
+		MemberDetailDto memberDetailDto = new MemberDetailDto();
+		memberDetailDto.setName(request.getParameter("name"));
+		memberDetailDto.setId(request.getParameter("id"));
+		memberDetailDto.setPass(request.getParameter("pass"));
+		memberDetailDto.setEmailid(request.getParameter("emailid"));
+		memberDetailDto.setEmaildomain(request.getParameter("emaildomain"));
 
-		} else if ("zipsearch".equals(act)) {
-			String doro = request.getParameter("doro");
-			System.out.println("검색 도로명 : " + doro);
-			String resultXML = MemberServiceImpl.getMemberService().zipSearch(doro);
-			System.out.println(resultXML);
-			response.setContentType("text/xml;charset=utf-8");
-			PrintWriter out = response.getWriter();
-			out.print(resultXML);
-		} else if ("register".equals(act)) {
-			MemberDetailDto memberDetailDto = new MemberDetailDto();
-			memberDetailDto.setName(request.getParameter("name"));
-			memberDetailDto.setId(request.getParameter("id"));
-			memberDetailDto.setPass(request.getParameter("pass"));
-			memberDetailDto.setEmailid(request.getParameter("emailid"));
-			memberDetailDto.setEmaildomain(request.getParameter("emaildomain"));
+		memberDetailDto.setTel1(request.getParameter("tel1"));
+		memberDetailDto.setTel2(request.getParameter("tel2"));
+		memberDetailDto.setTel3(request.getParameter("tel3"));
+		memberDetailDto.setZipcode(request.getParameter("zipcode"));
+		memberDetailDto.setAddress(request.getParameter("address"));
+		memberDetailDto.setAddressDetail(request.getParameter("address_detail"));
 
-			memberDetailDto.setTel1(request.getParameter("tel1"));
-			memberDetailDto.setTel2(request.getParameter("tel2"));
-			memberDetailDto.setTel3(request.getParameter("tel3"));
-			memberDetailDto.setZipcode(request.getParameter("zipcode"));
-			memberDetailDto.setAddress(request.getParameter("address"));
-			memberDetailDto.setAddressDetail(request.getParameter("address_detail"));			
-
-			int cnt = MemberServiceImpl.getMemberService().registerMember(memberDetailDto);
-
-		} else if ("".equals(act)) {
-
-		} else if ("".equals(act)) {
-
-		} else if ("".equals(act)) {
-
-		} else if ("".equals(act)) {
-
+		int cnt = MemberServiceImpl.getMemberService().registerMember(memberDetailDto);
+		// 체크해보기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		if (cnt != 0) {
+			request.setAttribute("userInfo", memberDetailDto);
+			path = "/user/member/registerok.jsp";
+		} else {
+			path = "/user/member/registerfail.jsp";
 		}
+		return path;
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		request.setCharacterEncoding(SiteConstance.ENCODE);
-		doGet(request, response);
+	public String login(HttpServletRequest request, HttpServletResponse response) {
+		String path = "/index.jsp";
+		String id = request.getParameter("id");
+		String pass = request.getParameter("pass");
+		System.out.println(id + pass);
+		MemberDto memberDto = MemberServiceImpl.getMemberService().loginMember(id, pass);
+
+		if (memberDto != null) {
+			/////////////////// cookie//////////////////
+			String idsv = request.getParameter("idsave");
+			if ("idsave".equals(idsv)) {
+				Cookie cookie = new Cookie("kid_inf", id);
+				cookie.setDomain("localhost");
+				cookie.setPath(request.getContextPath());
+				cookie.setMaxAge(60 * 60 * 24 * 365 * 50);
+				response.addCookie(cookie);
+			} else {
+				Cookie cookie[] = request.getCookies();
+				if (cookie != null) {
+					for (Cookie c : cookie) {
+						if ("kid_inf".equals(c.getName())) {
+							c.setDomain("localhost");
+							c.setPath(request.getContextPath());
+//							바로 만료시켜버림
+							c.setMaxAge(0);
+							response.addCookie(c);
+							break;
+						}
+					}
+				}
+			}
+			///////////////////////////////////////////
+			/////////////////// session/////////////////
+			HttpSession session = request.getSession();
+			session.setAttribute("userInfo", memberDto);
+			///////////////////////////////////////////
+			path = "/user/login/loginok.jsp";
+
+		} else {
+			path = "/user/login/loginfail.jsp";
+		}
+
+		return path;
+	}
+
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+//		session안에 userInfo에 null을 넣어라
+//		session.setAttribute("userInfo", null);
+//		session안에 userInfo란 이름의 Dto를 지워라
+//		session.removeAttribute("userInfo");
+//		session안에 모든 데이터들을 지워라
+		session.invalidate();
+		return "/user/login/login.jsp";
 	}
 
 }
