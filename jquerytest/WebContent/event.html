@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript">
+// JS 코딩을 jquery 코딩으로 변환
+$(document).ready(function(){
+//DOM트리에서 div>a객체 찾기
+	var $aObj =	$("div>a");	//()안과 같은 종류의 객체를 모두 찾는다.
+	//$()의 객체는 DOM 스크립트에서 js의 객체가 아니라 $()객체로 찾아온 것이다.
+	//즉 아까 적은 것과 같이 jquery의 사용가능한 함수들을 쓸수있다.
+	//console.log($aObj);
+	//aObj객체에서 클릭이벤트가 발생했을때 처리할 핸들러 작성하기
+	//할일 : "클릭되었습니다." 메세지를 경고창(alert)에 띄우기
+	// : 배경색을 yellow로 변경
+	$aObj.click(function(){
+//		alert("클릭하셨습니다.");
+		$(this).css("background-color","yellow");
+		return false;	//기본이벤트와 이벤트 전파를 막음
+		//==event.preventDefault(); and event.stopPropagation();
+		//위에서 backgound-color는 문자열이므로 backgroundColor의 js형식으로 써주지않아도됨.
+//		this.style.backgroundColor='yellow';
+	});
+	
+	var $divObj = $("div");
+	
+	$divObj.click(function(){
+		$(this).css("background-color", "gray");
+		
+	});
+	
+
+});
+</script>
+<!--  
+<script type="text/javascript">
+//window객체에서 load이벤트가 발생했을때 처리할 핸들러작성하기
+//window.addEventListener("load", function(){
+	
+	//var f1 = function(){
+	//	alert("클릭하tuT습니다.");
+	//	event.prevenDefault();
+	//});
+	//DOM트리에서 div>a객체 찾기
+	var aObj = document.querySelector("div>a");
+	//aObj객체에서 클릭이벤트가 발생했을때 처리할 핸들러 작성하기
+	//할일 : "클릭되었습니다." 메세지를 경고창(alert)에 띄우기
+	// : 배경색을 yellow로 변경
+	aObj.addEventListener("click",function(){
+		alert("클릭하셨습니다.");
+		this.style.backgroundColor='yellow';
+		event.preventDefault();
+		event.stopPropagation();
+	});
+	
+	//a태그를 클릭했을때 발생하는 이벤트가 부모태그인 div에도 전달된다.
+	//DOM트리에서 div객체 찾기
+	var divObj = document.querySelector("div");
+	//divObj객체에서 클릭이벤트가 발생했을때 처리할 핸들러 작성하기
+	//할일 : 배경색을 gray로 변경
+	divObj.addEventListener("click",function(){
+		this.style.backgroundColor="gray";
+	});
+	
+	
+});
+	
+	
+	
+	//DOM트리에서 div>a객체 찾기
+	//var aObj = $("div>a");
+	
+	//aObj객체에서 클릭이벤트가 발생했을때 처리할 핸들러 작성하기
+	//aObj.click.alert("클릭되었습니다.");
+	
+	//할일 : "클릭되었습니다." 메세지를 경고창(alert)에 띄우기
+
+
+</script>
+-->
+</head>
+<body>
+<div>div<br>
+<a href="http://www.google.com">a</a>
+</div>
+</body>
+</html>

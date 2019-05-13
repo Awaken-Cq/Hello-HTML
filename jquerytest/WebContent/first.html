@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// var all = document.querySelectorAll("body>p");
+		var $all = $("body>p");
+		$all.click(function() {
+			// this 단순히 js 영역의 객체
+			$(this).hide(); // jquery 영역의 객체로 변환되어 jquery가 제공하는 다양한 메소드들을 쓸 수 있다.
+		});
+	});
+</script>
+</head>
+<body>
+
+	<p>If you click on me, I will disappear.</p>
+	<p>Click me away!</p>
+	<p>Click me too!</p>
+
+
+
+	<!--
+ <script>
+//방법 1
+var f1 = function(){
+	this.style.display='none';
+	//== obj.style.display='none';
+}
+
+window.addEventListener("load", function(){
+var all = document.querySelectorAll("body>p"); // getElementby~ 랑 같다.
+	for(var i = 0; i < all.length ; i++){
+		var obj = all[i];
+		obj.addEventListener("click",f1);
+	}
+});
+//방법 2
+var all = document.querySelectorAll("body>p"); // getElementby~ 랑 같다.
+	for(var i = 0; i < all.length ; i++){
+		var obj = all[i];
+		obj.addEventListener("click",function(){
+					
+			// 현재 객체(this)의 style프로퍼티가 같고있는 display 프로퍼티의 벨류는 none이다.
+			this.style.display='none'; 
+			//== obj.style.display='none';
+		});
+	}
+</script> 
+-->
+
+</body>
+</html>

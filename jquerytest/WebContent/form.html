@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+$(function(){
+	var $formObj = $("form");
+	$formObj.submit(function(){
+	var $tObj = $("input[name=t]");
+	var $tObjValue = $tObj.val().trim();
+		if($tObjValue.length==0){
+			alert("반드시 입력하세요.");
+			$tObj.focus();
+			//event.preventDefault();
+		return false;
+		}else{
+			alert("전송되었습니다.");
+			$formObj.attr("type","post");
+			$formObj.attr("action","http://www.naver.com");
+			
+		}
+	});
+});
+</script>
+<!-- <script>
+	window.addEventListener("load", function() {
+		//DOM트리에서 input객체중 type속성이 submit인 객체찾기
+		var submitObj = document.querySelector("input[type=submit]");
+		//submitObj에서 클릭이벤트핸들러작성하기
+		//할일 : 클릭되었습니다. 경고창 띄우기
+		submitObj.addEventListener("click", function() {
+			alert("클릭되었습니다.");
+		});
+
+		//DOM트리에서 form객체찾기
+		//var formObj = document.querySelector("form");
+		var formObj = document.getElementById("form");
+
+		formObj.addEventListener("submit", function(event) {
+			var tObj = document.querySelector("input[name=t]");
+			var tObjValue = tObj.value.trim();
+			if (tObjValue.length == 0) {
+				alert("반드시 입력하세요.");
+				tObj.focus();
+				event.preventDefault();
+				
+			}else{
+			alert("전송되었습니다.");
+			}
+		});
+		//formObj에서 submit이벤트핸들러작성하기
+		//할일: 전송되었습니다. 경고창띄우기
+	});
+</script> -->
+</head>
+<body>
+	<form id="form" action="http://www.google.com">
+		<input name="t"><br> <input name="p" type="password"><br>
+		<!-- 체크박스는 선택이기때문에 value를 설정하지않으면 기본 value가 on이다. -->
+		<input name="c" type="checkbox" value="1">one&nbsp;&nbsp; <input
+			name="c" type="checkbox" value="2">two&nbsp;&nbsp; <input
+			name="c" type="checkbox" value="3">three<br>
+		<!-- select는 사용자가 선택한 옵션의 네임이 value가 된다.
+	그러나 value를 설정하면 value의 값이 우선된다. -->
+		<select name="s">
+			<option value="1">ONE</option>
+			<option value="2">TWO</option>
+			<option value="3">THREE</option>
+		</select>
+		<!-- 폼태그가 액션이 걸려있지않다면 지금 사용중인 url로 전송 -->
+		<input type="submit" value="전송1">
+		<!-- 특수일처리를 함 -->
+		<input type="button" value="버튼1">
+		<!-- js를 입히지않으면 아무일도안함 -->
+		<button>전송2</button>
+		<!-- 폼태그안에 있는 버튼은 input type="submit"과 같은 효과 -->
+
+	</form>
+	<button>전송3</button>
+	<!-- js를 입히지않으면 아무일도안함 -->
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>checkbox.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var chkArr = $("div>input[type=checkbox]");
+	//배열에 담기는건 순수 js객체이기때문에 jquery를 적용시켜주려면 jquery 객체화 시켜야한다.
+	var allObj = chkArr[0];
+	var $allObj = $(allObj);
+	$allObj.click(function(){
+		for(var i = 1; i<chkArr.length; i++){
+			
+			//jquery에서는 게터세터를 인자값 수에 따라 구분 게터(인자1), 세터(인자1,인자2)
+			//checkbox의 경우 value가 true,false 이기때문에 attr이 아니라 prop를 써줘야함
+			//앞으로 attr이 안먹힐때는 prop를 써주면 먹히기도한다.
+			//$(chkArr[i]).attr("checked", $allObj.attr("checked"));
+			$(chkArr[i]).prop("checked", $allObj.prop("checked"));
+		}
+		
+	});
+
+		
+});
+</script>
+
+
+<!-- <script>
+window.addEventListener("load", function(){
+		var cBox = document.querySelectorAll("div>input[type=checkbox]");
+		var all = cBox[0];
+		
+	all.addEventListener("click", function(){
+		//if(all.checked)
+			for(var i = 1; i<cBox.length;i++){
+				cBox[i].checked = all.checked;
+			//if문을 쓰지 않아도 자동으로 된다.....		
+			//}else{
+			//for(var i = 1; i<cBox.length;i++){
+			//	cBox[i].checked = all.checked;
+			//}
+			}
+		//}else{
+		//	cBox.setAttribute("checked","");
+		//}
+		
+	});
+	
+});
+
+</script> -->
+
+</head>
+<body>
+	<div>
+	<input type="checkbox">ALL
+	</div>
+	<div>
+	<input type="checkbox" checked>ONE&nbsp;&nbsp;
+	<input type="checkbox">TWO&nbsp;&nbsp;
+	<input type="checkbox">THREE
+	</div>
+</body>
+</html>
