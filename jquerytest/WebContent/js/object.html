@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>object.html</title>
+<script>
+//객체는 {}로 구성되며 {객체프로퍼티 : 값}
+var personObj = {name:'노정탁' 
+		, gender:'F'
+		, address:'동대문구'
+//객체 프로퍼티의 값으로 함수를 가져갈 수도있음.
+		, walk:function(){
+			console.log(this.name + "이 두발로 걷는다");
+//			아래와같이쓰면 name은 위에 선언된 name이 아니고
+//			새로 선언한 name으로 인식하기 때문에 this를 써줘야한다.
+//			console.log(name + "이 두발로 걷는다");
+		}
+		};
+console.log(personObj.name); // 노정탁
+personObj.walk();
+</script>
+</head>
+<body>
+
+</body>
+</html>

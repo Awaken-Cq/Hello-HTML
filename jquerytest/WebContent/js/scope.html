@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>scope.html</title>
+<script type="text/javascript">
+	var a;
+	console.log(typeof (a)); // undefined 자료형 정의되지않았기때문.
+	console.log(a + 1); // NaN
+
+	var a = 10;
+	console.log(a); //	중복선언했지만 에러없이 a값이 바뀜.
+
+	var b = function() {
+		var lv = 'hello';
+		gv = 'global';
+		for (var i = 0; i < 10; i++) {
+			console.log(i + ", " + lv + ', ' + gv);
+		}
+		console.log("in function lv = " + lv); // hello
+		console.log("in function i = " + i); // 10
+		console.log("in function gv = " + gv); // global
+	}
+	console.log(typeof (b));
+	console.log(b);
+	b();
+	//console.log("out function lv = " + lv); // lv is not defined
+	console.log("out function gv = " + gv); //  global
+</script>
+<script type="text/javascript">
+	window.addEventListener("load", function() {
+		var arr = document.querySelectorAll("button");
+		for (var i = 0; i < arr.length; i++) {
+			btnObj = arr[i];
+
+		 click(i);
+		 
+		};
+		
+	});
+	
+	function click(j){
+		btnObj.addEventListener("click", function() {
+			//alert(j + "번째 버튼이 클릭되었습니다."); // ??
+		var aObj = document.querySelector("input[name=a]");
+		var bObj = document.querySelector("input[name=b]");
+		var aNum = parseInt(aObj.value);
+		var bNum = parseInt(bObj.value);
+		switch(j){
+		case 0: 
+			alert(aNum+bNum);
+			break;
+		case 1:
+			alert(aNum-bNum);
+			break;
+		case 2:
+			alert(aNum*bNum);
+			break;
+		case 3:
+			alert(aNum/bNum);
+			break;
+	
+	
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<input type="text" name="a">
+	<input type="text" name="b">
+	<button>+</button>
+	<button>-</button>
+	<button>*</button>
+	<button>/</button>
+</body>
+</html>

@@ -37,7 +37,7 @@ $(function(){
 			url:vurl, // 요청할 url(vurl)
 			method:'get', // 요청할 method(get)
 			//success 프로퍼티는 함수형태로 만들어져야 한다.
-			success:function(result){ //응답받았을때 결과 가져올 인자값을 넣어줘야한다.(result)
+			success: function(result){ //응답받았을때 결과 가져올 인자값을 넣어줘야한다.(result)
 				$("section").html(result);
 			}
 본문
@@ -52,8 +52,8 @@ $(function(){
 <header align="center"><h1>HEADER</h1></header>
 <nav>메뉴
 	<ul>
-		<li><a href="/jquerytest/event.html">이벤트</a></li>
-		<li><a href="login.html">로그인</a></li>
+		<li><a href="user/member.html">가입</a></li>
+		<li><a href="user/login.html">로그인</a></li>
 	</ul>
 </nav>
 <section>본문</section>
