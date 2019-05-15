@@ -4,9 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
 import com.kitri.service.CustomerService;
 
@@ -18,14 +16,18 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String act = request.getParameter("act");
+		System.out.println(act);
 		if ("login".equals(act)) {
 			String id = request.getParameter("id");
 			String pass = request.getParameter("pass");
-
 			String result = CustomerService.getCustomerService().login(id, pass);
-			System.out.println(result+555);
+			HttpSession session = request.getSession();
+			session.removeAttribute("loginInfo");
+			if(result.equals("1")) { // 성공
+				session.setAttribute("loginInfo", id);
+			}
 			request.setAttribute("result", result);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/user/loginresult.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/loginresult.jsp");
 			dispatcher.forward(request, response);
 		}
 	}
@@ -33,19 +35,8 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-//		doGet(request, response);
+		doGet(request, response);
 
-		String act = request.getParameter("act");
-		if ("login".equals(act)) {
-			String id = request.getParameter("id");
-			String pass = request.getParameter("pass");
-
-			String result = CustomerService.getCustomerService().login(id, pass);
-			System.out.println(result+6666);
-			request.setAttribute("result", result);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/loginresult.jsp");
-			dispatcher.forward(request, response);
-		}
 
 	}
 

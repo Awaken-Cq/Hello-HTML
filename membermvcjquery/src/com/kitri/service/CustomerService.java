@@ -17,17 +17,16 @@ public class CustomerService {
 	}
 
 	public String login(String id, String pass) {
-		String result = "login fail!!";
+		String result = "-1";
 		
 		CustomerDto customer = null;
 		if (id != null && pass != null) {
 			try {
-				
 				customer = CustomerDao.getCustomerDao().selectById(id);
 				if (pass.equals(customer.getPass())) {
 					
-					result = "login success!!";
-					System.out.println(result);
+					result = "1";
+					
 					return result;
 				}
 				

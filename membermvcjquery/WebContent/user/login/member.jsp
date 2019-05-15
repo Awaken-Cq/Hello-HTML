@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="/template/header.jsp"%>  
-<script type="text/javascript" src="<%=root%>/js/httpRequest.js"></script>
+<%@page contentType="text/html;charset=UTF-8" %>
+
   
 <script type="text/javascript">
 $(document).ready(function() {
@@ -22,7 +20,7 @@ function idcheck(){
 		resultView.innerHTML ='<font color="gray">아이디는 5자이상 16자이하입니다.</font>';
 	}else{
 		var params = "act=idcheck&sid=" + searchId;
-		sendRequest("<%=root%>/user", params, idcheckResult, "GET");
+		sendRequest("/membermvcjquery/user", params, idcheckResult, "GET");
 	}
 }
 
@@ -64,15 +62,14 @@ function register(){
 		return;
 	}else{
 		//폼을 이용했을때 쿼리스트링은 브라우저가 만들어준다.
-		document.getElementById("memberform").action="<%= root%>/user";
+		document.getElementById("memberform").action="/membermvcjquery/user";
 		document.getElementById("memberform").submit();
 	}
 }
 
 
 </script>
-</head>
-<body>
+
 
 	<div class="container" align="center">
 		<div class="col-lg-6" align="center">
@@ -152,4 +149,3 @@ function register(){
 
 	
 <%@ include file="/user/login/zipsearch.jsp"%>   
-<%@ include file="/template/footer.jsp"%>    
