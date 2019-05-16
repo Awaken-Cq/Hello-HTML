@@ -1,0 +1,93 @@
+
+
+@전체상품목록 - sort by cate_no ascending(<=> descending)
+
+SELECT pc.cate_no, pc.cate_name, p.product_no, p.product_name, p.product_price, p.product_detail
+--FROM product NATURAL JOIN product_category;
+--FROM product JOIN product_category USING(product_cate)
+FROM product p JOIN product_category pc on p.product_cate = pc.cate_no
+ORDER BY cate_no, product_name;
+
+list of products by D Category 
+
+SELECT pc.cate_no, pc.cate_name, p.product_no, p.product_name, p.product_price, p.product_detail
+--FROM product NATURAL JOIN product_category;
+--FROM product JOIN product_category USING(product_cate)
+FROM product p JOIN product_category pc on p.product_cate = pc.cate_no
+where pc.cate_no = 'D'
+ORDER BY cate_no, product_name;
+
+Total price by D Category's products
+
+SELECT sum(product_price)
+--FROM product NATURAL JOIN prDoduct_category;
+--FROM product JOIN product_category USING(product_cate)
+FROM product p JOIN product_category pc on p.product_cate = pc.cate_no
+where pc.cate_no = 'D'
+
+Total price by each Category
+
+SELECT sum(product_price)
+--FROM product NATURAL JOIN prDoduct_category;
+--FROM product JOIN product_category USING(product_cate)
+FROM product p JOIN product_category pc on p.product_cate = pc.cate_no
+GROUP BY cate_no;
+
+
+------------------------
+상품 목록
+상품번호(PK)n.n 상품명n.n 			가격n.n chk(>=0)	 상세정보 분류n.n(FK)
+001				아메리카노			2500				D
+002			아이스아메리카노		2500				D
+003				라떼				3000				D
+004				치즈케익			4000				F
+
+
+
+상품 분류
+분류번호(PK)n.n 분류명n.n
+D	음료
+F	음식
+G	상품
+
+	
+drop table product;
+drop table product_category;
+
+create table product_category(
+	cate_no char(1),
+	cate_name varchar2(30) Not null,
+	constraint p_cate_cate_no_pk Primary key(cate_no)
+	);
+
+create table product(
+	product_no varchar2(5),
+	product_name varchar2(30) not null,
+	product_price number(5) not null,
+	product_detail varchar2(50),
+	product_cate char(1),
+	constraint product_p_no_pk Primary key(product_no),
+	constraint product_p_cate_fk Foreign key(product_cate)
+	references product_category(cate_no)
+); 
+
+alter table product
+modify product_price check (product_price>=0);
+
+
+insert all 
+into product
+values('001', '아메리카노', 2500, '', 'D')
+into product
+values('002', '아이스아메리카노', 2500, '', 'D')
+into product
+values('003', '라떼', 3000, '', 'D')
+into product
+values('004', '치즈케익', 4000, '', 'F')
+select * from dual;
+
+
+
+
+
+	

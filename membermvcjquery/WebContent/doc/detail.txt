@@ -1,0 +1,21 @@
+DTO
+pack : com.kitri.dto
+ProductCategory
+-----
+- cate_no : String
+- cate_name : String //문자하나를 표현해도 자바에서는 String으로 표현하라.
+-----
++ 생성자
++ setter/getter
+
+Product
+-----
+product_no : String
+product_name : String
+product_price : int
+product_detail : String
+product_cate : String >> -product_cate : ProductCategory
+
+product_cate는 두 테이블다 있으므로 자주보여질 쪽에 몰아주는게 좋다.
+
+즉 -product_cate : String >> -product_cate : ProductCategory

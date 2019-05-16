@@ -12,7 +12,7 @@ function zipSearch(){
 		return;		
 	}else{
 		var params = "act=zipsearch&doro=" + doro;
-		sendRequest("<%=root%>/user", params, zipsearchResult, "GET");
+		<%-- sendRequest("<%=root%>/user", params, zipsearchResult, "GET"); --%>
 	}
 	
 }

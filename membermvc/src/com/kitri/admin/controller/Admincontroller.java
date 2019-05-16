@@ -19,6 +19,7 @@ public class Admincontroller extends HttpServlet {
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	System.out.println("admin왔");
 		String act = request.getParameter("act");
 		String path = "/index.jsp";
 		

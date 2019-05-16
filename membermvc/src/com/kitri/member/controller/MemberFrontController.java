@@ -30,9 +30,11 @@ public class MemberFrontController extends HttpServlet {
 //		if(act.equals("")) {
 //		}	}
 		if ("mvjoin".equals(act)) {
+			System.out.println(act);
 			MoveUrl.redirect(request, response, "/user/member/member.jsp");
 			
 		} else if ("mvlogin".equals(act)) {
+			System.out.println(act);
 			MoveUrl.redirect(request, response, "/user/login/login.jsp");
 
 		} else if ("idcheck".equals(act)) {
@@ -47,6 +49,7 @@ public class MemberFrontController extends HttpServlet {
 		} else if ("zipsearch".equals(act)) {
 //		Ajax용이라 아예 따로하는게 좋음.
 			String doro = request.getParameter("doro");
+	
 			System.out.println("검색 도로명 : " + doro);
 			String resultXML = MemberServiceImpl.getMemberService().zipSearch(doro);
 			System.out.println(resultXML);
