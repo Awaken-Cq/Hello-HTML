@@ -3,8 +3,14 @@ package com.kitri.dto;
 public class ProductCategory {
 
 	public ProductCategory() {
-	
-	} 
+		
+	}
+
+	public ProductCategory(String cate_no, String cate_name) {
+		super();
+		this.cate_no = cate_no;
+		this.cate_name = cate_name;
+	}
 
 	private String cate_no;
 	private String cate_name;

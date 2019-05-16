@@ -7,6 +7,7 @@
 function deleteMember(){
 	if(confirm("탈퇴하시겠습니까?")){
 		document.location.href = "<%=root%>/user?act=deletemember";
+		
 	}
 }
 </script>
@@ -17,7 +18,7 @@ if(memberDto != null){
 %><Strong><%=memberDto.getName()%>(<%=memberDto.getId()%>)</Strong>님 환영합니다 ^_^<br>
 <a href="<%=root%>/user?act=logout">로그아웃</a>
 <a href="<%=root%>/user?act=mvmodify">정보수정</a>
-<a href="#" onclike="javascript:deleteMember();">회원탈퇴</a>
+<a href="" onclick="javascript:deleteMember();">회원탈퇴</a>
 <%
 if("now0510".equals(memberDto.getId())){
 %>

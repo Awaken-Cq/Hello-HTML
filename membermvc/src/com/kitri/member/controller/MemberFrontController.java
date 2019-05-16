@@ -67,8 +67,8 @@ public class MemberFrontController extends HttpServlet {
 		} else if ("logout".equals(act)) {
 			MemberController.getMemberController().logout(request, response);
 			MoveUrl.redirect(request, response, path);
-		} else if ("".equals(act)) {
-
+		} else if ("deletemember".equals(act)) {
+			MemberController.getMemberController().deletemember(request,response);
 		} else if ("".equals(act)) {
 
 		}

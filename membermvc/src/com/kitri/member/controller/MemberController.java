@@ -110,4 +110,9 @@ public class MemberController {
 		return "/user/login/login.jsp";
 	}
 
+	public void deletemember(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		
+	}
+
 }
