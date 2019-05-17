@@ -18,7 +18,10 @@ import com.kitri.service.ProductService;
 @WebServlet("/productinfo")
 public class ProductInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    ProductService productService;   
+	public ProductInfoServlet() {
+    	   productService = new ProductService();
+       }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -26,7 +29,7 @@ public class ProductInfoServlet extends HttpServlet {
 		String pid = request.getParameter("pinfo");
 		
 		Product p = null;
-		p = new ProductService().findNo(pid);
+		p = productService.findNo(pid);
 		if(p != null) {
 			request.setAttribute("p", p);
 		}

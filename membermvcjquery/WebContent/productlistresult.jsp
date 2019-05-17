@@ -9,7 +9,7 @@
 	int price;%>
 
 <%
-	List<Product> plist = (List<Product>) request.getAttribute("pd");
+	List<Product> plist = (List) request.getAttribute("pd");
 
 %>
 <%
@@ -25,12 +25,12 @@
 %>
 
 <div>
-	<div class="productinfo">
-<img  id="<%=no%>" class="pimg" src="img/<%=no%>.jpg" width="100"><br>
-category : <%=cate%><br>
-no : <%=no%><br>
-name : <%=name%><br>
-price : <%=price%><br> 
+	<div class="productinfo" style="float:left;text-align:center;">
+<img  id="<%=no%>" class="pimg" src="img/<%=no%>.jpg" alt="<%=name%>"><br>
+category : <span><%=cate%></span><br>
+no : <span><%=no%></span><br>
+name : <span><%=name%></span><br>
+price : <span><%=price%></span><br> 
 	</div>
 </div>
 <%

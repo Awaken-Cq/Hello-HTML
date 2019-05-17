@@ -22,7 +22,7 @@ public class ProductDao {
 			String selectAllSQL = "SELECT pc.cate_no, pc.cate_name, p.product_no, p.product_name, p.product_price, p.product_detail \n"+
 					"FROM product p JOIN product_category pc \n" +
 					"ON p.product_cate = pc.cate_no \n"+
-					"ORDER BY pc.cate_no, p.product_name";
+					"ORDER BY pc.cate_no, p.product_no";
 			pstmt = conn.prepareStatement(selectAllSQL);
 			//4) 결과수신
 			rs = pstmt.executeQuery();
@@ -59,8 +59,8 @@ public class ProductDao {
 			String selectIdSQL = "SELECT pc.cate_no, pc.cate_name, p.product_no, p.product_name, p.product_price, p.product_detail\r\n" + 
 					"FROM product p JOIN product_category pc\r\n" + 
 					"ON p.product_cate = pc.cate_no\r\n" + 
-					"where p.product_no = ?\r\n" + 
-					"ORDER BY pc.cate_no, p.product_name";
+					"where p.product_no = ?";
+					
 			pstmt = conn.prepareStatement(selectIdSQL);
 			pstmt.setString(1, pid);
 			rs = pstmt.executeQuery();

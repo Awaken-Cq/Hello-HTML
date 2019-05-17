@@ -82,20 +82,39 @@ footer {
 				data : "pinfo=" + pinfo,
 				success : function(result) {
 					$("section").html(result);
-					basketClickEvent();
+				basketClickEvent();
 				}
 			});
 		});
 	}
 
-	function basketClickEvent() {
+function basketClickEvent() {
 		var bkBtn = $("button[name=bkBtn]");
-		alert("눌렸1");
 		$(bkBtn).click(function(){
-			alert("눌렸2");
+		var $no = $("div>div>input[name=no]").val();
+		var $cnt = $("div>div>input[name=cnt]").val();
+			alert("왔다.");
+		$.ajax({
+				url:"addcart",
+				method:"get",
+				data:{ no : $no,
+					cnt : $cnt
+					},
+				success:function(result){
+					alert("장바구니에 추가성공");
+					$("div.addcartresult").remove();
+					//$("section").html(result.trim());
+					//기존섹션을 지우는 것이 아니라 버튼만 보이게 할것이기때문에 append
+					$("section").append(result.trim());
+				}
+					
+			});
 			
-		});
-	}
+			
+			}); 
+			
+		}
+
 </script>
 </head>
 <body>
