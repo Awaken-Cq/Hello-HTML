@@ -42,12 +42,18 @@ $(function(){
 	$btAddOrder.click(function(){
 
 		alert("주문하기 클릭!");
-		/* $.ajax({
+		$.ajax({
 			url:"addorder",
 			method:"get",
 			success:function(result){
+				alert("주문시도");
+				if(result.trim()=="1"){
+					alert("주문성공!!");
+				}else if(result.trim()=="-1"){
+					alert("주문실패 : 잠시 후에 다시 시도해주십시오.");
+				}
 			}
-		}); */
+		});
 		return false;
 	});
 });

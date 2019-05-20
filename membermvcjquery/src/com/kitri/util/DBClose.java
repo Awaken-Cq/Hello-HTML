@@ -56,4 +56,27 @@ public class DBClose {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void close(PreparedStatement pstmt, ResultSet rs) {
+
+		try {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void close(Connection conn) {
+
+		try {
+			if (conn != null)
+				conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

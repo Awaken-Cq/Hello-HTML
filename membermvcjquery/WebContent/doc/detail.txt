@@ -19,3 +19,5 @@ product_cate : String >> -product_cate : ProductCategory
 product_cate는 두 테이블다 있으므로 자주보여질 쪽에 몰아주는게 좋다.
 
 즉 -product_cate : String >> -product_cate : ProductCategory
+
+)
