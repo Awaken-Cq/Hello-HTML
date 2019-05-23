@@ -101,15 +101,18 @@ public class OrderDao {
 			int old_order_no = -1;
 			while(rs.next()) {
 				int order_no = rs.getInt("order_no");
-				if(old_order_no != order_no) {
+				if(old_order_no != order_no) { // 주문번호가 다를때. info를 새로만듬.
 					info = new OrderInfo();
-					list.add(info); // 주소값으로 참조값? 추가값?을 넣기때문에 선후의 차이가 있긴하지만 먼저추가해줘도된다. 
+					// add는 참조를 시킨것을 말하기 때문에 참조 후에 add를 해도 참조메모리를 갖고있기 때문에 info를 list.add로 삼은 코드의 위치는 선후를 가리지 않는다.
+					//주소값으로 참조값? 추가값?을 넣기때문에 선후의 차이가없다. 
+					list.add(info);
 					info.setOrder_no(order_no);
 					info.setOrder_date(rs.getDate("order_date"));
 					lines = new ArrayList<>();
 					info.setLines(lines);
 					old_order_no = order_no;
 				}
+				//주문번호가 같을때는 기존 info 사용.
 				line = new OrderLine();
 				String product_no = rs.getString("product_no"); //상품번호, 명, 가격
 				Product p = new Product();
