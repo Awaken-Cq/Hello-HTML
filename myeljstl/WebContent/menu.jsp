@@ -21,5 +21,8 @@
 		</c:choose>
 		<li><a href="productlistjson">전체상품JSON</a></li>
 		<li><a href="write.html">글쓰기</a></li>
+		<li><a href="boardlist">목록</a></li>
+		<li><a href="upload.html">파일업로드</a></li>
+		
 		
 	</ul>

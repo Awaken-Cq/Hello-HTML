@@ -1,4 +1,23 @@
+
+
+
 ---- 답변형 게시판
+게시글 리스트 출력
+
+SELECT count(*) cnt
+FROM repboard;
+
+insert into repboard
+values(board_seq.nextval, 0, '돌고돌아제자리', '삽질마스터', '프로그래밍 중 80%는 삽질', systimestamp, '1234', 0);
+
+SELECT *
+FROM(SELECT rownum r, repboard.*
+FROM repboard
+START WITH parent_seq = 0
+CONNECT BY PRIOR board_seq = parent_seq
+ORDER SIBLINGS BY board_seq DESC)
+WHERE r between 1 and 10;
+
 조회쿼리
 SELECT *
 FROM(SELECT rownum r, board_seq, parent_seq, to_char(board_date, 'hh:mi:ss')
@@ -6,7 +25,7 @@ FROM repboard
 START WITH parent_seq = 0
 CONNECT BY PRIOR board_seq = parent_seq
 ORDER SIBLINGS BY board_seq DESC)
-WHERE r between 5 and 8;
+WHERE r between 1 and 10;
 
 시퀀스 생성쿼리
 create SEQUENCE board_seq

@@ -4,6 +4,16 @@ import java.util.Date;
 
 public class RepBoardDto {
 
+	
+	private int board_seq; //글번호
+	private int parent_seq; //부모글번호: 원글-0
+	private String board_subject; //제목
+	private String board_writer; //작성자
+	private String board_contents; //글내용
+	private Date board_date; //작성일자
+	private String board_password; //글비밀번호
+	private int board_viewcount; //글조회수
+
 	public RepBoardDto() {
 		super();
 	}
@@ -68,14 +78,6 @@ public class RepBoardDto {
 	}
 
 
-	private int board_seq; //글번호
-	private int parent_seq; //부모글번호: 원글-0
-	private String board_subject; //제목
-	private String board_writer; //작성자
-	private String board_contents; //글내용
-	private Date board_date; //작성일자
-	private String board_password; //글비밀번호
-	private int board_viewcount; //글조회수
 	
 	public int getBoard_seq() {
 		return board_seq;
@@ -141,5 +143,11 @@ public class RepBoardDto {
 		this.board_viewcount = board_viewcount;
 	}
 	
+	@Override
+	public String toString() {
+		return "RepBoardDto [board_seq=" + board_seq + ", parent_seq=" + parent_seq + ", board_subject=" + board_subject
+				+ ", board_writer=" + board_writer + ", board_contents=" + board_contents + ", board_date=" + board_date
+				+ ", board_password=" + board_password + ", board_viewcount=" + board_viewcount + "]";
+	}
 	
 }
