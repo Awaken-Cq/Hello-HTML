@@ -21,7 +21,10 @@ public class ViewCartServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		request.getHeader("User-Agent");
+		String userAgent = request.getHeader("User-Agent");
+		System.out.println(userAgent);
+		
 		//		1)세션얻기
 		HttpSession session = request.getSession();
 //		2)세션속성중 'cart'속성얻기
@@ -33,7 +36,9 @@ public class ViewCartServlet extends HttpServlet {
 				String no = p.getProduct_no();
 				
 			//	try {
+				System.out.println(no);
 				Product p1 = productService.findNo(no);
+				System.out.println(p1);
 				int quantity = c.get(p1);
 				rc.put(p1, quantity);
 			//	}catch(NotFoundException e) {
@@ -41,7 +46,14 @@ public class ViewCartServlet extends HttpServlet {
 			//	}
 			}
 			request.setAttribute("rcart", rc);
+			
+			//브라우저에서 요청
 			String path = "/viewcartresult.jsp";
+			
+			//안드로이드앱에서 요청
+			if(userAgent.contains("Dalvik")) {
+				path = "/viewcartresultjson.jsp";
+			}
 			RequestDispatcher rd = request.getRequestDispatcher(path);
 			rd.forward(request, response);
 		

@@ -11,9 +11,9 @@ public class PageNumTest {
 				
 		startPage = ((currentPage-1)/cntPerPageGroup)*cntPerPageGroup+1;
 		endPage = startPage + cntPerPageGroup-1;
-		if(endPage>totalPage) {
-			endPage = totalPage;
-		}
+		//if(endPage>totalPage) {
+	//		endPage = totalPage;
+		//}
 		
 		if(currentPage%cntPerPageGroup == 2) {
 			startPage = currentPage-2;
