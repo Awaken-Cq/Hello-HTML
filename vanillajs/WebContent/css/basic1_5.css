@@ -4,5 +4,10 @@ body{
 }
 
 h1{
-	/* color:#00a8ff; */
+	color:#2980b9;
+	/* transition: color 0.5s ease-in-out; */
+}
+
+.clicked{
+	color:#ecf0f1;
 }
